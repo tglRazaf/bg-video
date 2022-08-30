@@ -1,0 +1,58 @@
+@media screen and (max-width: 425px) {
+  .navbar-item {
+    display: none;
+  }
+  .navbar-end .menu {
+    display: block;
+  }
+  .intro h1 {
+    font-size: 15vh !important;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .menu {
+    display: none;
+  }
+}
+
+@-webkit-keyframes slide-cover {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0%;
+  }
+}
+
+@keyframes slide-cover {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0%;
+  }
+}
+
+@-webkit-keyframes page-transition {
+  from {
+    -webkit-transform: translateX(-120vw);
+            transform: translateX(-120vw);
+  }
+  to {
+    -webkit-transform: translateX(100vw);
+            transform: translateX(100vw);
+  }
+}
+
+@keyframes page-transition {
+  from {
+    -webkit-transform: translateX(-120vw);
+            transform: translateX(-120vw);
+  }
+  to {
+    -webkit-transform: translateX(100vw);
+            transform: translateX(100vw);
+  }
+}
+/*# sourceMappingURL=extras.css.map */
