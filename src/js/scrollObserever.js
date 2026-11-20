@@ -35,3 +35,16 @@ export const disapearElementObserver = new IntersectionObserver((entries)=>{
         }
     })
 }, disapearOptions)
+
+const revealOptions = {
+    rootMargin: '0px 0px -10% 0px',
+    threshold: 0.15
+}
+export const revealObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            revealObserver.unobserve(entry.target)
+        }
+    })
+}, revealOptions)
