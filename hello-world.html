@@ -5,8 +5,115 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World</title>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          min-height: 100vh;
+          display: grid;
+          place-items: center;
+          overflow: hidden;
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+          background:
+            radial-gradient(circle at 15% 20%, #502c4b 0%, transparent 45%),
+            radial-gradient(circle at 85% 80%, #2c3950 0%, transparent 50%),
+            #0d1117;
+          color: #f5f7fa;
+        }
+
+        body::before {
+          content: "";
+          position: fixed;
+          width: 45vmax;
+          height: 45vmax;
+          border-radius: 50%;
+          background: radial-gradient(circle, #db4f4f33 0%, transparent 70%);
+          animation: drift 14s ease-in-out infinite alternate;
+        }
+
+        .greeting {
+          position: relative;
+          padding: 0.2em;
+          font-size: clamp(2.5rem, 10vw, 7rem);
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          line-height: 1.1;
+          text-align: center;
+          background: linear-gradient(120deg, #ffffff, #ffd7f5, #a9d6ff, #ffffff);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          filter: drop-shadow(0 10px 30px #a9d6ff33);
+          animation:
+            reveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) both,
+            shimmer 6s linear 1.4s infinite;
+        }
+
+        .greeting::after {
+          content: "";
+          position: absolute;
+          right: 10%;
+          bottom: 0;
+          left: 10%;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, #ffd7f5, #a9d6ff, transparent);
+          transform: scaleX(0);
+          animation: underline 1.2s ease-out 0.9s forwards;
+        }
+
+        @keyframes reveal {
+          from {
+            opacity: 0;
+            transform: translateY(40px) scale(0.94);
+            filter: blur(12px);
+            clip-path: inset(0 0 100% 0);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+            clip-path: inset(0 0 0 0);
+          }
+        }
+
+        @keyframes shimmer {
+          to {
+            background-position: 200% center;
+          }
+        }
+
+        @keyframes underline {
+          to {
+            transform: scaleX(1);
+          }
+        }
+
+        @keyframes drift {
+          from {
+            transform: translate(-30vw, -20vh) scale(0.9);
+          }
+          to {
+            transform: translate(30vw, 20vh) scale(1.2);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          body::before,
+          .greeting {
+            animation: none;
+          }
+          .greeting::after {
+            transform: scaleX(1);
+          }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <h1 class="greeting">Hello, World!</h1>
 </body>
 </html>
