@@ -1,4 +1,4 @@
-import {disapearElementObserver, observer} from './scrollObserever.js'
+import {disapearElementObserver, observer, revealObserver} from './scrollObserever.js'
 
 const getElementByQuery = (el) => document.querySelector(el)
 const getAllElementByQuery = (el) => document.querySelectorAll(el)
@@ -10,6 +10,7 @@ const section3 = getElementByQuery('.section.is-3')
 const cards = getAllElementByQuery('.card')
 const datas = getElementByQuery('div').getAttribute('data-animate')
 const footer = getElementByQuery('.footer')
+const revealElements = getAllElementByQuery('.reveal')
 
 let lastPosition
 
@@ -21,6 +22,8 @@ cards.forEach( card => {
     const cardAttr = card.getAttribute('data-animate')
     if(cardAttr) observer.observe(card)
 })
+
+revealElements.forEach(el => revealObserver.observe(el))
 
 disapearElementObserver.observe(section2)
 

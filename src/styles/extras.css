@@ -6,12 +6,33 @@
     display: block;
   }
   .intro h1 {
-    font-size: 15vh !important;
+    font-size: clamp(3rem, 13vw, 5rem) !important;
+  }
+  .section {
+    padding: 60px 24px !important;
+  }
+  .section .big-text {
+    font-size: clamp(2.5rem, 11vw, 4rem) !important;
   }
 }
 
 @media screen and (min-width: 425px) {
   .menu {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .transition-cover,
+  .card.animate .card-cover {
+    -webkit-animation: none;
+            animation: none;
     display: none;
   }
 }
